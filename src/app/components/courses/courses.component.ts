@@ -1,4 +1,5 @@
 import {Component} from "@angular/core";
+import {CoursesService} from "../../services/courses.service";
 
 //This is a plain typescript class. To make this class identify as a component, angular uses 'Decorators'
 @Component({
@@ -16,5 +17,9 @@ import {Component} from "@angular/core";
 })
 export class CoursesComponent {
   title = "List of courses";
-  courses = ;
+  courses;
+
+  constructor(coursesService: CoursesService) {
+    this.courses = coursesService.getCourses();
+  }
 }
